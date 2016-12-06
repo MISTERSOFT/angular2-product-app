@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+
 import { HomeModule } from './home/home.module';
 import { ProductsModule } from './products/products.module';
 
@@ -25,7 +27,7 @@ const routes: Routes = [
     HomeModule,
     ProductsModule
   ],
-  providers: [],
+  providers: [SharedModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

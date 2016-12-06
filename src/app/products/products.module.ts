@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// Services
+import { ProductService } from '../shared/products.service';
+
+// Components
 import { ProductsComponent }   from './products.component';
 
 const routes: Routes = [
-    { path: 'products', component: ProductsComponent }
+    { path: 'products', component: ProductsComponent },
+    { path: 'products/:id', component: ProductsComponent }
 ];
 
 @NgModule({
@@ -16,6 +21,8 @@ const routes: Routes = [
         ProductsComponent
     ],
     declarations: [ProductsComponent],
-    providers: [],
+    providers: [
+        ProductService
+    ],
 })
 export class ProductsModule { }

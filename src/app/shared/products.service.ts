@@ -1,15 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/observable/observable';
-import 'rxjs/operator/map';
+import {
+    Http,
+    Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+import { Product } from './product.model';
 
 @Injectable()
-export class ProductsService {
+export class ProductService {
+    private apiUrl: string = 'http://localhost:3001/';
 
-    constructor(http:Http) { }
+    constructor(private http: Http) { }
 
-    public getProducts(): Array<Observables> {
+    public getProducts(): Observable<Product[]> {
         // TODO
-        return this.http.get();
+        return this.http
+            .get(this.apiUrl + 'products')
+            .map(this.success)
+            .catch(this.error);
+    }
+
+    private success(response: Response) {
+        console.log('response', response.json());
+        return response.json().data;
+    }
+
+    private error(error: Response) {
+        let errMessage: string;
+        if (error instanceof Response) {
+            let body = error.json() || '';
+            let err = body.error || JSON.stringify(body);
+            errMessage = `${error.status} - ${error.statusText || ''} ${err}`;
+        }
+        else {
+            errMessage = error.message ? error.message : error.toString();
+        }
+        console.log(errMessage);
+        return Observable.throw(errMessage);
     }
 }

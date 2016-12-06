@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 
-import { SharedService }   from './shared.service';
+import { ProductService }   from './products.service';
 
 @NgModule({
     imports: [],
     exports: [
-        SharedService
+        ProductService
     ],
     declarations: [
-        SharedService
+        ProductService
     ],
     providers: [],
 })
