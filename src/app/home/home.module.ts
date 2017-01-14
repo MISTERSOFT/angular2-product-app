@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
  * Attendre la version stable de 'ng2-bootstrap'
  * afin que cala puisse marcher avec Angular 2.2.1
  */
-// import { CarouselModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { CarouselModule } from 'ng2-bootstrap/components/carousel';
 
 import { HomeComponent }   from './home.component';
 
@@ -15,7 +15,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        // CarouselModule,
+        CarouselModule,
         RouterModule.forChild(routes)
     ],
     exports: [
@@ -23,6 +23,6 @@ const routes: Routes = [
         HomeComponent
     ],
     declarations: [HomeComponent],
-    providers: [],
+    providers: []
 })
 export class HomeModule { }

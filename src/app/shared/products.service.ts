@@ -35,7 +35,8 @@ export class ProductService {
             errMessage = `${error.status} - ${error.statusText || ''} ${err}`;
         }
         else {
-            errMessage = error.message ? error.message : error.toString();
+            //errMessage = error.statusText ? error.statusText : error.toString();
+            errMessage = 'An error occurred';
         }
         console.log(errMessage);
         return Observable.throw(errMessage);
