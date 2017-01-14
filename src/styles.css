@@ -1,23 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(http://fonts.gstatic.com/s/materialicons/v19/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
 }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+    /*display: flex;
+    min-height: 100vh;
+    flex-direction: column;*/
+    height: 100%;
+}
+
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
+
+main {
+    flex: 1 0 auto;
+}
+
+.preloader-wrapper {
+    position: fixed;
+    top: calc(50% - (64px + 100px));
+    left: calc(50% - 64px);
+}
+
+.fixed-button-bottom-right {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.page-footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #101010;
-}
-.container .text-muted {
-  margin: 20px 0;
+  right: 0;
+  left: 0;
 }

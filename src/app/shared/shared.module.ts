@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { ProductService }   from './products.service';
+import { Product } from './product.model';
+import { ProductService } from './products.service';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
-    imports: [],
-    exports: [
-        ProductService
-    ],
-    declarations: [
-        ProductService
-    ],
-    providers: [],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    CommonModule,
+    // ProductService,
+    CarouselComponent,
+    // Product
+  ],
+  declarations: [
+    CarouselComponent
+  ]
 })
 export class SharedModule { }

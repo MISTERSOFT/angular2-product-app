@@ -15,7 +15,6 @@ export class ProductService {
     constructor(private http: Http) { }
 
     public getProducts(): Observable<Product[]> {
-        // TODO
         return this.http
             .get(this.apiUrl + 'products')
             .map(this.success)

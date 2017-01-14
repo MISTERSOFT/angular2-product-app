@@ -10,15 +10,15 @@ export class HomeComponent implements OnInit {
 
     titlePage: string = 'Home';
 
-    /**
-     * Attendre la version stable de 'ng2-bootstrap'
-     * afin que cala puisse marcher avec Angular 2.2.1
-     */
-    // Carousel properties
-    public interval: number = 5000;
-    public noTransition: boolean = false;
-    public noPause: boolean = true;
-    public slides: Array<any> = [];
+    // /**
+    //  * Attendre la version stable de 'ng2-bootstrap'
+    //  * afin que cala puisse marcher avec Angular 2.2.1
+    //  */
+    // // Carousel properties
+    // public interval: number = 5000;
+    // public noTransition: boolean = false;
+    // public noPause: boolean = true;
+    slides: Array<any> = [];
 
     constructor() {
         this.slides = [
