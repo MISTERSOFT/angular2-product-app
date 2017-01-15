@@ -22,17 +22,13 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngOnInit() { }
 
   goToProduct(id: string) {
-    this.router.navigateByUrl('/products/' + id);
+    this.router.navigateByUrl('/'+ id);
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       $(this.carousel.nativeElement).slider();
     }, 300);
-  }
-
-  t() {
-
   }
 
 }

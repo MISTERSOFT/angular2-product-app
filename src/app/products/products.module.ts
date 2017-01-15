@@ -1,8 +1,6 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-// Services
-import { ProductService } from '../shared/products.service';
 
 // Components
 import { ProductsComponent }   from './products.component';
@@ -14,15 +12,13 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        SharedModule
     ],
     exports: [
         RouterModule,
         ProductsComponent
     ],
-    declarations: [ProductsComponent],
-    providers: [
-        ProductService
-    ],
+    declarations: [ProductsComponent]
 })
 export class ProductsModule { }

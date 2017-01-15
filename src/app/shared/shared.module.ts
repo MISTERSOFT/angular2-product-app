@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Product } from './product.model';
-import { ProductService } from './products.service';
+import { ProductService } from './product.service';
 import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
@@ -11,10 +11,15 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports: [
     CommonModule,
-    CarouselComponent
+    CarouselComponent,
+    ProductService
   ],
   declarations: [
-    CarouselComponent
+    CarouselComponent,
+    ProductService
+  ],
+  providers: [
+    ProductService
   ]
 })
 export class SharedModule { }
