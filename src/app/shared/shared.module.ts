@@ -11,9 +11,7 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports: [
     CommonModule,
-    // ProductService,
-    CarouselComponent,
-    // Product
+    CarouselComponent
   ],
   declarations: [
     CarouselComponent

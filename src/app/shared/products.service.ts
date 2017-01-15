@@ -21,8 +21,27 @@ export class ProductService {
             .catch(this.error);
     }
 
+    public getProduct(id: string): Observable<Product> {
+      return this.http
+        .get(this.apiUrl + 'products/' + id)
+        .map(this.success)
+        .catch(this.error);
+    }
+
+    public deleteProduct(id: string) {
+
+    }
+
+    public updateProduct(product : Product) {
+
+    }
+
+    public createProduct(product: Product) {
+
+    }
+
     private success(response: Response) {
-        console.log('response', response.json());
+        console.log('ProductService - response : ', response.json());
         return response.json().data;
     }
 

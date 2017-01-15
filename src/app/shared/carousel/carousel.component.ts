@@ -2,9 +2,11 @@ import {
   Component,
   OnInit,
   AfterViewInit,
-  Input } from '@angular/core';
+  Input,
+  ViewChild,
+  ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
+declare var $: any;
 
 @Component({
   selector: 'carousel',
@@ -13,6 +15,7 @@ import * as $ from 'jquery';
 export class CarouselComponent implements OnInit, AfterViewInit {
 
   @Input() slides: Array<any>;
+  @ViewChild('slider') carousel : ElementRef;
 
   constructor(private router: Router) { }
 
@@ -24,7 +27,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      //$('.slider').slider();
+      $(this.carousel.nativeElement).slider();
     }, 300);
   }
 
