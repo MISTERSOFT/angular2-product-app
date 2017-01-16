@@ -11,12 +11,10 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports: [
     CommonModule,
-    CarouselComponent,
-    ProductService
+    CarouselComponent
   ],
   declarations: [
-    CarouselComponent,
-    ProductService
+    CarouselComponent
   ],
   providers: [
     ProductService

@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { CommonAppModule } from './common/common-app.module';
 
 import { HomeModule } from './home/home.module';
 import { ProductsModule } from './products/products.module';
@@ -25,9 +26,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: true }),
     // My modules
     HomeModule,
-    ProductsModule
+    ProductsModule,
+    CommonAppModule
   ],
-  providers: [SharedModule],
+  providers: [
+    SharedModule,
+    CommonAppModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

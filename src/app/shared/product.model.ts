@@ -1,6 +1,6 @@
 export class Product {
-    id: string;
-    rev: string;
+    _id: string;
+    _rev: string;
     title: string;
     description: string;
     price: number;
@@ -22,8 +22,8 @@ export class Product {
         _thumb: string,
         _image: string
     ) {
-        this.id = _id;
-        this.rev = _rev;
+        this._id = _id;
+        this._rev = _rev;
         this.title = _title;
         this.description = _description;
         this.price = _price;

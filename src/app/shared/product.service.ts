@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Product } from './product.model';
+import { ResponseApi } from './response-api.model';
 
 @Injectable()
 export class ProductService {
@@ -14,7 +15,7 @@ export class ProductService {
 
     constructor(private http: Http) { }
 
-    public getProducts(): Observable<Product[]> {
+    public getProducts(): Observable<ResponseApi> {
         return this.http
             .get(this.apiUrl)
             .map(this.success)
@@ -51,7 +52,7 @@ export class ProductService {
 
     private success(response: Response) {
         console.log('ProductService - response : ', response.json());
-        return response.json().data;
+        return response.json();
     }
 
     private error(error : Response) {
