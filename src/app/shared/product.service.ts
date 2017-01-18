@@ -42,7 +42,7 @@ export class ProductService {
           let p: Product = null;
 
           if (data.success) {
-            p = new Product(data.result[0]);
+            p = new Product(data.result);
           }
 
           return p;

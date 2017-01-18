@@ -14,7 +14,7 @@ import { URLService } from './../core/url.service';
 })
 export class ProductsComponent implements OnInit {
 
-    title: string = 'Product';
+    title: string = 'Products';
     products: Product[] = [];
 
     constructor(
@@ -26,10 +26,9 @@ export class ProductsComponent implements OnInit {
         this.productsService.getProducts().subscribe(
           (res: Product[]) => {
               for(let product of res) {
-                product.formatID();
+                product._id = product.formatID();
               }
               this.products = res;
-              console.log('fomatted', this.products);
           }
         );
     }
@@ -43,7 +42,7 @@ export class ProductsComponent implements OnInit {
     }
 
     deleteProduct(id: string) {
-
+      // TODO
     }
 
 }
