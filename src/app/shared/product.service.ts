@@ -5,9 +5,10 @@ import {
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
+import { ResponseApi } from './../core/response-api.model';
 import { Product } from './product.model';
-import { ResponseApi } from './response-api.model';
 
 @Injectable()
 export class ProductService {
@@ -15,17 +16,37 @@ export class ProductService {
 
     constructor(private http: Http) { }
 
-    public getProducts(): Observable<ResponseApi> {
+    public getProducts(): Observable<Product[]> {
         return this.http
             .get(this.apiUrl)
-            .map(this.success)
+            .map((res: Response) => {
+              let data : ResponseApi = res.json();
+              let products : Product[] = [];
+
+              if (data.success) {
+                for (let p of data.result) {
+                  products.push(new Product(p));
+                }
+              }
+
+              return products;
+            })
             .catch(this.error);
     }
 
     public getProductById(id: string): Observable<Product> {
       return this.http
         .get(this.apiUrl + id)
-        .map(this.success)
+        .map((res: Response) => {
+          let data : ResponseApi = res.json();
+          let p: Product = null;
+
+          if (data.success) {
+            p = new Product(data.result[0]);
+          }
+
+          return p;
+        })
         .catch(this.error);
     }
 
@@ -57,17 +78,12 @@ export class ProductService {
 
     private error(error : Response) {
         let errMessage: string;
-        if (error instanceof Response) {
-            let body = error.json() || '';
-            let err = body.error || JSON.stringify(body);
-            errMessage = `${error.status} - ${error.statusText || ''} ${err}`;
-        }
-        else {
-            // errMessage = error.statusText ? error.statusText : error.toString();
-            errMessage = 'An error occurred';
+        let body = error.json() || '';
+        let err = body.error || JSON.stringify(body);
 
-        }
-        console.log('ProductService error - ', errMessage);
+        errMessage = `${error.status} - ${error.statusText || ''} ${err}`;
+
         return Observable.throw(errMessage);
     }
+
 }

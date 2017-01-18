@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Product } from './product.model';
 import { ProductService } from './product.service';
 import { CarouselComponent } from './carousel/carousel.component';
+import { EuroPipe } from './euro.pipe';
 
 @NgModule({
   imports: [
@@ -11,10 +12,12 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   exports: [
     CommonModule,
-    CarouselComponent
+    CarouselComponent,
+    EuroPipe
   ],
   declarations: [
-    CarouselComponent
+    CarouselComponent,
+    EuroPipe
   ],
   providers: [
     ProductService

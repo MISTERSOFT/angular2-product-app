@@ -10,27 +10,20 @@ export class Product {
     thumb: string;
     image: string;
 
-    constructor(
-        _id: string,
-        _rev: string,
-        _title: string,
-        _description: string,
-        _price: number,
-        _color: string,
-        _department: string,
-        _material: string,
-        _thumb: string,
-        _image: string
-    ) {
-        this._id = _id;
-        this._rev = _rev;
-        this.title = _title;
-        this.description = _description;
-        this.price = _price;
-        this.color = _color;
-        this.department = _department;
-        this.material = _material;
-        this.thumb = _thumb;
-        this.image = _image;
+    constructor(data: any) {
+        this._id = data._id;
+        this._rev = data._rev;
+        this.title = data.title;
+        this.description = data.description;
+        this.price = data.price;
+        this.color = data.color;
+        this.department = data.department;
+        this.material = data.material;
+        this.thumb = data.thumb;
+        this.image = data.image;
+    }
+
+    formatID() : string {
+      return this._id.replace('/products/', '');
     }
 }

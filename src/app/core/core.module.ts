@@ -9,4 +9,4 @@ import { URLService } from './url.service';
     URLService
   ]
 })
-export class CommonAppModule { }
+export class CoreModule { }

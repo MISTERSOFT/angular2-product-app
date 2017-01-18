@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { CommonAppModule } from './common/common-app.module';
+import { CoreModule } from './core/core.module';
 
 import { HomeModule } from './home/home.module';
 import { ProductsModule } from './products/products.module';
@@ -27,11 +27,11 @@ const routes: Routes = [
     // My modules
     HomeModule,
     ProductsModule,
-    CommonAppModule
+    CoreModule
   ],
   providers: [
     SharedModule,
-    CommonAppModule
+    CoreModule
   ],
   bootstrap: [AppComponent]
 })

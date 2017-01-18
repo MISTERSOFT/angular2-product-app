@@ -1,4 +1,5 @@
-import { Product } from './product.model';
+import { Product } from './../shared/product.model';
+
 export class ResponseApi {
   public success: boolean;
   public result: Product[];
