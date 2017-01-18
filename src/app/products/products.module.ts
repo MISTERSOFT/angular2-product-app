@@ -1,13 +1,13 @@
-import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Components
+import { ProductEditComponent } from './edit/product-edit.component';
 import { ProductsComponent }   from './products.component';
+import { SharedModule } from './../shared/shared.module';
 
 const routes: Routes = [
     { path: 'products', component: ProductsComponent },
-    { path: 'products/:id', component: ProductsComponent }
+    { path: 'products/edit/:id', component: ProductEditComponent },
 ];
 
 @NgModule({
@@ -17,8 +17,12 @@ const routes: Routes = [
     ],
     exports: [
         RouterModule,
-        ProductsComponent
+        ProductsComponent,
+        ProductEditComponent
     ],
-    declarations: [ProductsComponent]
+    declarations: [
+      ProductsComponent,
+      ProductEditComponent
+    ]
 })
 export class ProductsModule { }
