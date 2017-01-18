@@ -24,6 +24,6 @@ export class Product {
     }
 
     formatID() : string {
-      return this._id.replace('/products/', '');
+      return this._id.replace('products/', '');
     }
 }
