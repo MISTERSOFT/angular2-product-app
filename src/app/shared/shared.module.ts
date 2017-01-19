@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { Product } from './product.model';
 import { ProductService } from './product.service';
@@ -10,12 +10,14 @@ import { EuroPipe } from './euro.pipe';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     // Angular
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     // Mine
     CarouselComponent,
     EuroPipe

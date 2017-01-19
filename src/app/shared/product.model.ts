@@ -10,17 +10,17 @@ export class Product {
     thumb: string;
     image: string;
 
-    constructor(data: any) {
-        this._id = data._id;
-        this._rev = data._rev;
-        this.title = data.title;
-        this.description = data.description;
-        this.price = data.price;
-        this.color = data.color;
-        this.department = data.department;
-        this.material = data.material;
-        this.thumb = data.thumb;
-        this.image = data.image;
+    constructor(data?: any) {
+        this._id          = data && data._id || '';
+        this._rev         = data && data._rev || '';
+        this.title        = data && data.title || '';
+        this.description  = data && data.description || '';
+        this.price        = data && data.price || 0;
+        this.color        = data && data.color || '';
+        this.department   = data && data.department || '';
+        this.material     = data && data.material || '';
+        this.thumb        = data && data.thumb || '';
+        this.image        = data && data.image || '';
     }
 
     formatID() : string {

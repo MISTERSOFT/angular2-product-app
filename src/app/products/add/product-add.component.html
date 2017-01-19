@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h1>Add a new product</h1>
+    </div>
+  </div>
+  <div class="row">
+    <form class="col s12" [formGroup]="addForm" (ngSubmit)="addProduct($event)">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title" type="text" [(ngModel)]="product.title" formControlName="title">
+          <label for="title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="description" class="materialize-textarea" [(ngModel)]="product.description" formControlName="description"></textarea>
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <input id="price" type="text" [(ngModel)]="product.price" formControlName="price">
+          <label for="price">Price (€)</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="color" type="text" [(ngModel)]="product.color" formControlName="color">
+          <label for="color">Color</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="material" type="text" [(ngModel)]="product.material" formControlName="material">
+          <label for="material">Material</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="department" type="text" [(ngModel)]="product.department" formControlName="department">
+          <label for="department">Department</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="imageUrl" type="url" class="validate" [(ngModel)]="product.image">
+          <label for="imageUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.image != ''">Image URL</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="thumbUrl" type="url" class="validate" [(ngModel)]="product.thumb">
+          <label for="thumbUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.thumb != ''">Thumbnail URL</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button class="btn-large light-blue" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
