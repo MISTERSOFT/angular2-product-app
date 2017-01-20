@@ -11,48 +11,40 @@
           <div class="row">
             <div class="input-field col s12">
               <input id="title" type="text" [(ngModel)]="product.title">
-              <!--ng-class="{ active : vm.product.title != '' }"-->
               <label for="title" [class.active]="product.title != ''">Title</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
               <textarea id="description" class="materialize-textarea" [(ngModel)]="product.description"></textarea>
-              <!--ng-class="{ active : vm.product.description != '' }"-->
               <label for="description" [class.active]="product.description != ''">Description</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s3">
               <input id="price" type="text" [(ngModel)]="product.price">
-              <!--ng-class="{ active : vm.product.price != '' }"-->
               <label for="price" [class.active]="product.price != ''">Price (€)</label>
             </div>
             <div class="input-field col s3">
               <input id="color" type="text" [(ngModel)]="product.color">
-              <!--ng-class="{ active : vm.product.color != '' }"-->
               <label for="color" [class.active]="product.color != ''">Color</label>
             </div>
             <div class="input-field col s3">
               <input id="material" type="text" [(ngModel)]="product.material">
-              <!--ng-class="{ active : vm.product.material != '' }"-->
               <label for="material" [class.active]="product.material != ''">Material</label>
             </div>
             <div class="input-field col s3">
               <input id="department" type="text" [(ngModel)]="product.department">
-              <!--ng-class="{ active : vm.product.department != '' }"-->
               <label for="department" [class.active]="product.department != ''">Department</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s6">
               <input id="imageUrl" type="url" class="validate" [(ngModel)]="product.image">
-              <!--ng-class="{ active : vm.product.image != '' }"-->
               <label for="imageUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.image != ''" >Image</label>
             </div>
             <div class="input-field col s6">
               <input id="thumbUrl" type="url" class="validate" [(ngModel)]="product.thumb">
-               <!--ng-class="{ active : vm.product.thumb != '' }"-->
               <label for="thumbUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.thumb != ''">Thumbnail</label>
             </div>
           </div>
