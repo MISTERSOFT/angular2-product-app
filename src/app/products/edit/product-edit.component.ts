@@ -24,7 +24,7 @@ export class ProductEditComponent implements OnInit {
         url: {
             error: 'Put a valid URL',
             success: 'Good'
-        },
+        }
     };
 
     constructor(

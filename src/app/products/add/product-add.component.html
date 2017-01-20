@@ -5,45 +5,45 @@
     </div>
   </div>
   <div class="row">
-    <form class="col s12" [formGroup]="addForm" (ngSubmit)="addProduct($event)">
+    <form class="col s12" [formGroup]="addForm" (submit)="addProduct()">
       <div class="row">
         <div class="input-field col s12">
-          <input id="title" type="text" [(ngModel)]="product.title" formControlName="title">
+          <input id="title" type="text" formControlName="title">
           <label for="title">Title</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="description" class="materialize-textarea" [(ngModel)]="product.description" formControlName="description"></textarea>
+          <textarea id="description" class="materialize-textarea" formControlName="description"></textarea>
           <label for="description">Description</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3">
-          <input id="price" type="text" [(ngModel)]="product.price" formControlName="price">
+          <input id="price" type="text" formControlName="price">
           <label for="price">Price (€)</label>
         </div>
         <div class="input-field col s3">
-          <input id="color" type="text" [(ngModel)]="product.color" formControlName="color">
+          <input id="color" type="text" formControlName="color">
           <label for="color">Color</label>
         </div>
         <div class="input-field col s3">
-          <input id="material" type="text" [(ngModel)]="product.material" formControlName="material">
+          <input id="material" type="text" formControlName="material">
           <label for="material">Material</label>
         </div>
         <div class="input-field col s3">
-          <input id="department" type="text" [(ngModel)]="product.department" formControlName="department">
+          <input id="department" type="text" formControlName="department">
           <label for="department">Department</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="imageUrl" type="url" class="validate" [(ngModel)]="product.image">
-          <label for="imageUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.image != ''">Image URL</label>
+          <input id="imageUrl" type="url" class="validate" formControlName="image">
+          <label for="imageUrl" [attr.data-error]="getMessage('url', 'error')" [attr.data-success]="getMessage('general', 'success')">Image URL</label>
         </div>
         <div class="input-field col s6">
-          <input id="thumbUrl" type="url" class="validate" [(ngModel)]="product.thumb">
-          <label for="thumbUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.thumb != ''">Thumbnail URL</label>
+          <input id="thumbUrl" type="url" class="validate" formControlName="thumb">
+          <label for="thumbUrl" [attr.data-error]="getMessage('url', 'error')" [attr.data-success]="getMessage('general', 'success')">Thumbnail URL</label>
         </div>
       </div>
       <div class="row">
