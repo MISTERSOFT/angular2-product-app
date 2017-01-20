@@ -16,6 +16,10 @@ export class ProductService {
 
     constructor(private http: Http) { }
 
+    /**
+     * Get all products
+     * @return {Observable<Product[]>} Products
+     */
     public getProducts(): Observable<Product[]> {
         return this.http
             .get(this.apiUrl)
@@ -34,6 +38,11 @@ export class ProductService {
             .catch(this.error);
     }
 
+    /**
+     * Get product by ID
+     * @param {string} id - Product ID
+     * @return {Observable<Product>} A product
+     */
     public getProductById(id: string): Observable<Product> {
       return this.http
         .get(this.apiUrl + id)
@@ -50,6 +59,11 @@ export class ProductService {
         .catch(this.error);
     }
 
+    /**
+     * Delete product by ID
+     * @param {string} id - Product ID
+     * @return {Observable<any>} Response about the deletion
+     */
     public deleteProduct(id: string) {
       return this.http
         .delete(this.apiUrl + id)
@@ -57,6 +71,11 @@ export class ProductService {
         .catch(this.error);
     }
 
+    /**
+     * Update a product
+     * @param {Product} id - Product ID
+     * @return {Observable<any>} Response about the modification
+     */
     public updateProduct(product : Product) {
       return this.http
         .put(this.apiUrl, product)
@@ -64,6 +83,11 @@ export class ProductService {
         .catch(this.error);
     }
 
+    /**
+     * Create a product
+     * @param {Product} product - Product ID
+     * @return {Observable<any>} Response about the insertion
+     */
     public createProduct(product: Product) {
       return this.http
         .post(this.apiUrl, product)
@@ -71,11 +95,17 @@ export class ProductService {
         .catch(this.error);
     }
 
+    /**
+     * Success callback
+     */
     private success(response: Response) {
         console.log('ProductService - response : ', response.json());
         return response.json();
     }
 
+    /**
+     * Error callback
+     */
     private error(error : Response) {
         let errMessage: string;
         let body = error.json() || '';
