@@ -1,28 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Services
-import { ProductService } from '../shared/products.service';
-
-// Components
+import { ProductEditComponent } from './edit/product-edit.component';
+import { ProductAddComponent } from './add/product-add.component';
 import { ProductsComponent }   from './products.component';
+import { SharedModule } from './../shared/shared.module';
 
 const routes: Routes = [
     { path: 'products', component: ProductsComponent },
-    { path: 'products/:id', component: ProductsComponent }
+    { path: 'products/edit/:id', component: ProductEditComponent },
+    { path: 'products/add', component: ProductAddComponent },
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        SharedModule
     ],
     exports: [
-        RouterModule,
-        ProductsComponent
+        RouterModule
     ],
-    declarations: [ProductsComponent],
-    providers: [
-        ProductService
-    ],
+    declarations: [
+      ProductsComponent,
+      ProductEditComponent,
+      ProductAddComponent
+    ]
 })
 export class ProductsModule { }

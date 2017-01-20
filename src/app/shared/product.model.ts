@@ -1,6 +1,6 @@
 export class Product {
-    id: string;
-    rev: string;
+    _id: string;
+    _rev: string;
     title: string;
     description: string;
     price: number;
@@ -10,27 +10,20 @@ export class Product {
     thumb: string;
     image: string;
 
-    constructor(
-        _id: string,
-        _rev: string,
-        _title: string,
-        _description: string,
-        _price: number,
-        _color: string,
-        _department: string,
-        _material: string,
-        _thumb: string,
-        _image: string
-    ) {
-        this.id = _id;
-        this.rev = _rev;
-        this.title = _title;
-        this.description = _description;
-        this.price = _price;
-        this.color = _color;
-        this.department = _department;
-        this.material = _material;
-        this.thumb = _thumb;
-        this.image = _image;
+    constructor(data?: any) {
+        this._id          = data && data._id || '';
+        this._rev         = data && data._rev || '';
+        this.title        = data && data.title || '';
+        this.description  = data && data.description || '';
+        this.price        = data && data.price || 0;
+        this.color        = data && data.color || '';
+        this.department   = data && data.department || '';
+        this.material     = data && data.material || '';
+        this.thumb        = data && data.thumb || '';
+        this.image        = data && data.image || '';
+    }
+
+    formatID() : string {
+      return this._id.replace('products/', '');
     }
 }

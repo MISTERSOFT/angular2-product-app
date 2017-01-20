@@ -1,3 +1,7 @@
+import { Product } from './../shared/product.model';
+import { URLService } from './../core/url.service';
+import { ResponseApi } from './../core/response-api.model';
+import { ProductService } from './../shared/product.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -10,26 +14,23 @@ export class HomeComponent implements OnInit {
 
     titlePage: string = 'Home';
 
-    /**
-     * Attendre la version stable de 'ng2-bootstrap'
-     * afin que cala puisse marcher avec Angular 2.2.1
-     */
-    // Carousel properties
-    public interval: number = 5000;
-    public noTransition: boolean = false;
-    public noPause: boolean = true;
-    public slides: Array<any> = [];
+    slides: Array<any> = [];
 
-    constructor() {
-        this.slides = [
-            {active: false, image: 'http://lorempixel.com/980/480/food/', title: 'Quis eu consectetur culpa aliqua fugiat aliqua.', text: 'Non occaecat elit deserunt tempor sint quis cillum. Sit dolore duis laborum consequat pariatur deserunt qui commodo nulla. Et aliquip aliquip magna sint sunt nostrud commodo eu. Ea fugiat eiusmod incididunt minim aliqua irure non cillum voluptate.'},
-            {active: false, image: 'http://lorempixel.com/980/480/food/', title: 'Quis eu consectetur culpa aliqua fugiat aliqua.', text: 'Non occaecat elit deserunt tempor sint quis cillum. Sit dolore duis laborum consequat pariatur deserunt qui commodo nulla. Et aliquip aliquip magna sint sunt nostrud commodo eu. Ea fugiat eiusmod incididunt minim aliqua irure non cillum voluptate.'},
-            {active: false, image: 'http://lorempixel.com/980/480/food/', title: 'Quis eu consectetur culpa aliqua fugiat aliqua.', text: 'Non occaecat elit deserunt tempor sint quis cillum. Sit dolore duis laborum consequat pariatur deserunt qui commodo nulla. Et aliquip aliquip magna sint sunt nostrud commodo eu. Ea fugiat eiusmod incididunt minim aliqua irure non cillum voluptate.'},
-            {active: true, image: 'http://lorempixel.com/980/480/food/', title: 'Quis eu consectetur culpa aliqua fugiat aliqua.', text: 'Non occaecat elit deserunt tempor sint quis cillum. Sit dolore duis laborum consequat pariatur deserunt qui commodo nulla. Et aliquip aliquip magna sint sunt nostrud commodo eu. Ea fugiat eiusmod incididunt minim aliqua irure non cillum voluptate.'}
-        ];
-    }
+    constructor(
+      private productService: ProductService,
+      private urlService: URLService) { }
 
     ngOnInit() {
+      this.getProductsForCarousel();
+    }
+
+    getProductsForCarousel() {
+      this.productService.getProducts().subscribe((res: Product[]) => {
+        this.slides = res.slice(0, 5);
+        for(let product of this.slides) {
+          product._id = this.urlService.formatURL(product._id);
+        }
+      });
     }
 
 }

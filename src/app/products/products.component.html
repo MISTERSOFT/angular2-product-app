@@ -1,14 +1,33 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="page-header">
-                <h1>{{ title }}</h1>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1>{{ title }}</h1>
+      </div>
+      <div class="fixed-button-bottom-right">
+        <a class="btn-floating btn-large waves-effect waves-light green" (click)="gotoAdd()">
+          <i class="material-icons">add</i>
+        </a>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            Product page
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col s4" *ngFor="let product of products">
+        <div class="card small hoverable">
+          <div class="card-image">
+            <img [src]="product.thumb">
+            <span class="card-title black-text">{{ product.price | euro }}</span>
+          </div>
+          <div class="card-content">
+            <p>{{ product.title }}</p>
+          </div>
+          <div class="card-action center-align">
+            <a class="btn blue" (click)="gotoEdit(product._id)">Edit</a>
+            <button class="btn red" (click)="deleteProduct(product._id)">Delete</button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

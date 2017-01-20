@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row" *ngIf="showInfo">
+    <div class="col s12">
+      <h1>{{ product.title }}</h1>
+      <img [src]="product.image" [alt]="product.title">
+    </div>
+    <div class="col s12">
+      <h2>Update information about the product</h2>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" [(ngModel)]="product.title">
+              <label for="title" [class.active]="product.title != ''">Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="description" class="materialize-textarea" [(ngModel)]="product.description"></textarea>
+              <label for="description" [class.active]="product.description != ''">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s3">
+              <input id="price" type="text" [(ngModel)]="product.price">
+              <label for="price" [class.active]="product.price != ''">Price (€)</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="color" type="text" [(ngModel)]="product.color">
+              <label for="color" [class.active]="product.color != ''">Color</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="material" type="text" [(ngModel)]="product.material">
+              <label for="material" [class.active]="product.material != ''">Material</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="department" type="text" [(ngModel)]="product.department">
+              <label for="department" [class.active]="product.department != ''">Department</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="imageUrl" type="url" class="validate" [(ngModel)]="product.image">
+              <label for="imageUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.image != ''" >Image</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="thumbUrl" type="url" class="validate" [(ngModel)]="product.thumb">
+              <label for="thumbUrl" [attr.data-error]="inputMessages.url.error" [attr.data-success]="inputMessages.url.success" [class.active]="product.thumb != ''">Thumbnail</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 center-align">
+              <button class="btn-large light-blue" (click)="updateProduct()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
